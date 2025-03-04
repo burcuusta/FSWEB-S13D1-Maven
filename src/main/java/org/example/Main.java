@@ -5,7 +5,9 @@ public class Main {
 
         System.out.println(shouldWakeUp(true, 22));
 
-        System.out.println(hasTeen(8,7,15));
+        System.out.println(hasTeen(9, 99, 19));
+        System.out.println(hasTeen(23, 15, 42));
+        System.out.println(hasTeen(22, 23, 34)); // false
 
         System.out.println(isCatPlaying(false,43));
 
@@ -20,37 +22,32 @@ public class Main {
             return false;
         }
 
-        if (isBarking == true && (clock < 20 && clock > 8)) {
-            return true;
-        } else {
-            return false;
+        if (isBarking) {
+            if (clock < 8 || clock >= 20) {
+                return true;
+            }
         }
+        return false;
 
 
     }
 
 
-    public static boolean hasTeen(int firstAge, int secondAge, int thirdAge) {
-        if((firstAge<19 && firstAge>13)||(secondAge<19 && secondAge>13)||(thirdAge<19 && thirdAge>13))
-        {
-            return true;
-        }
-
-        return false;
+    public static boolean hasTeen(int yas1, int yas2, int yas3) {
+        return (yas1 >= 13 && yas1 <= 19) ||
+                (yas2 >= 13 && yas2 <= 19) ||
+                (yas3 >= 13 && yas3 <= 19);
     }
 
 
 
     public static boolean isCatPlaying(boolean isSummer, int temp) {
 
-        if(isSummer==true && (temp<=45 && temp>25))
-        {
-            return true;
-        }else if(isSummer==false && (temp<=35 && temp>25))
-        {
-            return true;
+        if (isSummer) {
+            return temp >= 25 && temp <= 45;
+        } else {
+            return temp >= 25 && temp <= 35;
         }
-        return false;
     }
 
     public static double area(double width, double height) {
